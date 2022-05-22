@@ -1,10 +1,10 @@
 {
   "base": {
-    "project": "${JOB_BASE_NAME}",
+    "project": "Diplom",
     "environment": "QaGuru",
-    "comment": "Диплом",
-    "reportLink": "${BUILD_URL}",
-    "language": "ru",
+    "comment": "Diplom reqresin",
+    "reportLink": "https://reqres.in",
+    "language": "en",
     "messenger": "telegram",
     "allureFolder": "build/allure-report/",
     "enableChart": true
