@@ -17,59 +17,33 @@ https://reqres.in/
 ---
 
 #### Список проверок, реализованных в автотестах
-- [x] Выполнение поиска. Проверка, что открылась соответствующая страница
-- [x] Наличие требуемых заголовков в верхнем меню страницы
-- [x] Лог консоли браузера на странице входа в Систему не содержит ошибок
-- [x] выполнение регистрации. Проверка успешного прохождения регистрации.
-- [x] Добавление в корзину первого товара на странице и проверка счетчика в корзине.
+- [x] Вызов пользователя
+- [x] Возвращение ошибки при отсутствии пароля
+- [x] Вызов списка пользователей
+- [x] Создание пользователя
+- [x] Изменение данных пользователя
+- [x] Удаление пользователя
+- [x] Успешная регистрация пользователя
+- [x] Проверка email в списке пользователей (Groovy)
+
+
+## <img width="4%" title="Jenkins" src="images/icons/Jenkins.png"> Запуск тестов в [Jenkins](https://jenkins.autotests.cloud/job/011_tmolonushenko_reqresin/)
 
 ---
-# Запуск тестов
----
-Для локального запуска команда
-```
-gradle clean test -Dthreads=4
+![Jenkins](images/Allure_Report_reqresin1.png)
 
-```
-Где `threads` - количество потоков параллельного запуска тестов.
-
-### <img width="4%" title="Jenkins" src="images/icons/Jenkins.png"> Запуск тестов в [Jenkins](https://jenkins.autotests.cloud/job/011_tmolonushenko_sotoFoto/)
-
----
-
-```
-clean
-test
--Dbrowser=${BROWSER}  
--DbrowserVersion=${BROWSER_VERSION} 
--DbrowserSize=${BROWSER_SIZE}  
--DremoteDriverUrl=https://user1:1234@${REMOTE_DRIVER_URL}/wd/hub/ 
--DvideoStorage=https://${REMOTE_DRIVER_URL}/video/ 
--Dthreads=${THREADS} 
-
-```
-
-- [x] Dbrowser - браузер, в котором будут выполняться тесты (по умолчанию chrome)
-- [x] DbrowserVersion - версия браузера (по умолчанию 100.0)
-- [x] DbrowserSize - размер окна браузера (по умолчанию 1920x1080)
-- [x] DremoteDriverUrl - логин, пароль и адрес удаленного сервера, где будут выполняться тесты (по умолчанию https://[selenoidUser]:[selenoidPwd]@selenoid.autotests.cloud/wd/hub/)
-- [x] DvideoStorage - хранилище видео выполненных тестов (по умолчанию https://selenoid.autotests.cloud/video/)
-- [x] Dthreads - количество потоков выполняющихся тестов (по умолчанию 5)
-
-Для запуска сборки необходимо указать значения параметров и нажать кнопку `Собрать`
-![Jenkins](images/jenkins_sborkaP.jpg)
 
 ## <img width="4%" title="Allure Report" src="images/icons/Allure_Report.png"> Отчет о результатах тестирования в [Allure Report](https://jenkins.autotests.cloud/job/011_tmolonushenko_sotoFoto/allure/)
 
 ----
 
-![Allure Report](images/Allure_ReportOver.png)
-###Список тестов c описанием шагов и визуализацией результатов
-![Allure Report](images/Allure_ReportTest.png)
+![Allure Report](images/Allure_Report2.png)
+###Список тестов c описанием тестов
+![Allure Report](images/Allure_Report3.png)
 
+###Графики
+![Allure Report](images/Allure_Report4.png)
 
-### <img width="4%" title="Allure Report" src="images/icons/Selenoid.png" Видео-отчет о прохождении теста из Selenoid:
-![videoTest](https://user-images.githubusercontent.com/99205386/169517259-81fc365a-66ed-4c00-9d8d-f882f221c379.gif)
 
 ### <img width="4%" title="Allure Report" src="images/icons/AllureTestOps.png"> Проект интегрирован с Allure TestOps
 
@@ -83,7 +57,7 @@ test
 
 ---
 ## <img width="4%" title="Allure Report" src="images/icons/Telegram.png"> Уведомление в Telegram
-![Telegram Bot](images/telegram1.png)
+![Telegram Bot](images/telegram2.png)
 
 
 ---

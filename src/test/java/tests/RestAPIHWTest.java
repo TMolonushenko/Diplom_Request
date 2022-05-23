@@ -1,12 +1,16 @@
 package tests;
 
 import io.qameta.allure.Owner;
+import models.ClientProperties;
+import models.CreateUserResponse;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 import static io.restassured.RestAssured.given;
 import static io.restassured.http.ContentType.JSON;
+import static io.restassured.module.jsv.JsonSchemaValidator.matchesJsonSchemaInClasspath;
 import static listener.CustomAllureListener.withCustomTemplates;
+import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 import static org.hamcrest.Matchers.*;
 
 public class RestAPIHWTest {
@@ -54,8 +58,8 @@ public class RestAPIHWTest {
     @DisplayName("Создание пользователя")
     @Test
     void createTest() {
-        String authDataCreate = "{\"name\": \"morpheus\",\n" +
-                "    \"job\": \"leader\"\n" +
+        String authDataCreate = "{\"name\": \"lama\",\n" +
+                "    \"job\": \"QA\"\n" +
                 "}";
 
         given()
@@ -70,8 +74,9 @@ public class RestAPIHWTest {
 
     }
 
+
     @Owner("tmolonushenko")
-    @DisplayName("Изменение пользователя")
+    @DisplayName("Изменение данных пользователя")
     @Test
     void upDateTest() {
         String upData = "{\"name\": \"morpheus\",\n" +
