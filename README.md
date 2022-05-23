@@ -38,10 +38,10 @@ https://reqres.in/
 ----
 
 ![Allure Report](images/Allure_Report2.png)
-###Список тестов c описанием тестов
+### Список тестов c описанием тестов
 ![Allure Report](images/Allure_Report3.png)
 
-###Графики
+### Графики
 ![Allure Report](images/Allure_Report4.png)
 
 
