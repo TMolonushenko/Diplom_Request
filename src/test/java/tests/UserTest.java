@@ -15,7 +15,8 @@ import static listener.CustomAllureListener.withCustomTemplates;
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 import static org.hamcrest.Matchers.hasItem;
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import static tests.Specs.*;
+import static tests.Specs.request;
+import static tests.Specs.responseSpec;
 
 
 public class UserTest {
@@ -32,7 +33,6 @@ public class UserTest {
                 .then()
                 .spec(responseSpec)
                 .log().body();
-
     }
 
     @Owner("tmolonushenko")
@@ -54,34 +54,31 @@ public class UserTest {
     @Test
     void singleUserWithModel() {
 
-        UserData data =
-                given()
-                        .filter(withCustomTemplates())
-                        .spec(request)
-                        .when()
-                        .get("/users/2")
-                        .then()
-                        .spec(responseSpec)
-                        .log().body()
-                        .extract().as(UserData.class);
+        UserData data = given()
+                .filter(withCustomTemplates())
+                .spec(request)
+                .when()
+                .get("/users/2")
+                .then()
+                .spec(responseSpec)
+                .log().body()
+                .extract().as(UserData.class);
         assertEquals(2, data.getData().getId());
-        //  assertThat(data.getData().getId()).isEqualTo(2);
     }
 
     @Owner("tmolonushenko")
     @DisplayName("Вызов пользователя (Spec/Lombok)")
     @Test
     void SingleUserWithLombokModel() {
-        LombokUserData data =
-                given()
-                        .filter(withCustomTemplates())
-                        .spec(request)
-                        .when()
-                        .get("/users/2")
-                        .then()
-                        .spec(responseSpec)
-                        .log().body()
-                        .extract().as(LombokUserData.class);
+        LombokUserData data = given()
+                .filter(withCustomTemplates())
+                .spec(request)
+                .when()
+                .get("/users/2")
+                .then()
+                .spec(responseSpec)
+                .log().body()
+                .extract().as(LombokUserData.class);
 
         assertEquals(2, data.getUser().getId());
     }
@@ -96,23 +93,21 @@ public class UserTest {
         properties.setName("lama");
         properties.setJob("QA");
 
-        CreateUserResponse createResponse =
-                given()
-                        .filter(withCustomTemplates())
-                        .body(properties)
-                        .contentType(JSON)
-                        .when()
-                        .post("https://reqres.in/api/users")
-                        .then()
-                        .statusCode(201)
-                        .body(matchesJsonSchemaInClasspath("schemas/CreateUser_schema.json"))
-                        .extract().as(CreateUserResponse.class);
+        CreateUserResponse createResponse = given()
+                .filter(withCustomTemplates())
+                .body(properties)
+                .contentType(JSON)
+                .when()
+                .post("https://reqres.in/api/users")
+                .then()
+                .statusCode(201)
+                .body(matchesJsonSchemaInClasspath("schemas/CreateUser_schema.json"))
+                .extract().as(CreateUserResponse.class);
 
         assertThat(createResponse.getName()).isEqualTo("lama");
         assertThat(createResponse.getJob()).isEqualTo("QA");
         assertThat(createResponse.getId()).hasSizeGreaterThan(1);
         assertThat(createResponse.getCreatedAt()).isNotNull();
-
     }
 
     @Owner("tmolonushenko")
@@ -128,6 +123,5 @@ public class UserTest {
                 .log().body()
                 .body("data.findAll{it.email=~/.*?@reqres.in/}.email.flatten()",
                         hasItem("eve.holt@reqres.in"));
-
     }
 }

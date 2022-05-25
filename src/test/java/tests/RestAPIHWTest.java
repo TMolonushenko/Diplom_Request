@@ -1,16 +1,12 @@
 package tests;
 
 import io.qameta.allure.Owner;
-import models.ClientProperties;
-import models.CreateUserResponse;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 import static io.restassured.RestAssured.given;
 import static io.restassured.http.ContentType.JSON;
-import static io.restassured.module.jsv.JsonSchemaValidator.matchesJsonSchemaInClasspath;
 import static listener.CustomAllureListener.withCustomTemplates;
-import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 import static org.hamcrest.Matchers.*;
 
 public class RestAPIHWTest {
@@ -70,7 +66,7 @@ public class RestAPIHWTest {
                 .post("https://reqres.in/api/users")
                 .then()
                 .statusCode(201)
-                .body("name", is("morpheus"));
+                .body("name", is("lama"));
 
     }
 
@@ -79,21 +75,21 @@ public class RestAPIHWTest {
     @DisplayName("Изменение данных пользователя")
     @Test
     void upDateTest() {
-        String upData = "{\"name\": \"morpheus\",\n" +
-                "    \"job\": \"zion resident\"\n" +
+        String upData = "{\"name\": \"lama\",\n" +
+                "    \"job\": \"QA\"\n" +
                 "}";
         given()
                 .filter(withCustomTemplates())
                 .body(upData)
-                .param("name", "morpheus")
-                .param("job", "zion resident")
+                .param("name", "lama")
+                .param("job", "QA")
                 .param("updatedAt", "2022-04-08T09:32:51.115Z")
                 .contentType(JSON)
                 .when()
                 .put("https://reqres.in/api/users/2")
                 .then()
                 .statusCode(200)
-                .body("job", is("zion resident"));
+                .body("job", is("QA"));
     }
 
     @Owner("tmolonushenko")
