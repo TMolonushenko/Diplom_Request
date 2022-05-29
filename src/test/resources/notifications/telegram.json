@@ -15,3 +15,11 @@
     "replyTo": ""
   }
 }
+
+java \
+"-DprojectName=Diplom" \
+"-Denv=Prod" \
+"-DreportLink=https://jenkins.autotests.cloud/job/011_tmolonushenko_reqresin/" \
+"-Dcomm=Testing Reqres.in" \
+"-DconfigFile=src/test/resources/notifications/telegram.json" \
+-jar src/test/resources/notifications/allure-notifications-4.1.jar

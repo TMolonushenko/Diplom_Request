@@ -33,11 +33,11 @@ https://reqres.in/
 ![Jenkins](images/Allure_Report_reqresin1.png)
 
 
-## <img width="4%" title="Allure Report" src="images/icons/Allure_Report.png"> Отчет о результатах тестирования в [Allure Report](https://jenkins.autotests.cloud/job/011_tmolonushenko_sotoFoto/allure/)
+## <img width="4%" title="Allure Report" src="images/icons/AllureTestOps.png"> Отчет о результатах тестирования в [Allure Report](https://jenkins.autotests.cloud/job/011_tmolonushenko_sotoFoto/allure/)
 
 ----
 
-![Allure Report](images/Allure_Report2.png)
+![Allure Report](images/sborka.png)
 ### Список тестов c описанием тестов
 ![Allure Report](images/Allure_Report3.png)
 
@@ -50,10 +50,10 @@ https://reqres.in/
 ---
 
 ## Тест-кейсы с историей запусков
-![Allure TestOps](images/AllureTestOps2.png)
+![Allure TestOps](images/spisokTest.png)
 
 ## Дашборд
-![Allure TestOps](images/AllureTestOps3.png)
+![Allure TestOps](images/allure.png)
 
 ---
 ## <img width="4%" title="Allure Report" src="images/icons/Telegram.png"> Уведомление в Telegram
